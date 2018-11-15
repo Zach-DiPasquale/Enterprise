@@ -1,0 +1,63 @@
+﻿@page
+@model KennUwareHR.Pages_Leave.CalendarModel
+
+
+@{
+    ViewData["Title"] = "Calendar";
+}
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <link rel='stylesheet' href='~/lib/fullcalendar/dist/fullcalendar.css' />
+
+    <script src='~/lib/jquery/dist/jquery.js'></script>
+    <script src='~/lib/moment/src/moment.js'></script>
+    <script src='~/lib/fullcalendar/dist/fullcalendar.min.js'></script>
+
+    <script type="text/javascript">
+
+        var appEventURL = '/api/leaves/approved/' + @Model.Employee.Id;
+        var unappEventURL = '/api/leaves/unapproved/' + @Model.Employee.Id;
+
+        $(document).ready(function () {
+            $('#calendar').fullCalendar({
+                defaultView: 'month',
+                themeSystem: 'bootstrap4',
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,basicWeek'
+                },
+
+                eventSources: [{
+                    url: appEventURL,
+                    color: 'blue',
+                    textColor: 'white'
+                },
+                {
+                    url: unappEventURL,
+                    color: 'red',
+                    textColor: 'black'
+                }],
+
+                eventLimit: true
+            })
+        })
+    </script>
+</head>
+
+@if (User.IsInRole("HR") || (User.IsInRole("Employee") && Model.UserId == Model.Employee.Id) || User.IsInRole("Admin"))
+{
+    <p>
+        <a role="button" class="btn btn-primary" asp-page="Create">Apply for Leave?</a>
+    </p>
+    <div id="calendar"></div>
+}
+else
+{
+    <p>Sorry, you are not authorized to view this employee's calendar.</p>
+}
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

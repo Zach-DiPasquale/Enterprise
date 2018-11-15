@@ -1,0 +1,54 @@
+@page
+@model KennUwareHR.Pages_Paycheck.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Paycheck</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Paycheck.PayPeriodStart" class="control-label"></label>
+                <input asp-for="Paycheck.PayPeriodStart" class="form-control" />
+                <span asp-validation-for="Paycheck.PayPeriodStart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Paycheck.PayPeriodEnd" class="control-label"></label>
+                <input asp-for="Paycheck.PayPeriodEnd" class="form-control" />
+                <span asp-validation-for="Paycheck.PayPeriodEnd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Apply Quarterly Bonus</label>
+                <select name="quartleyBonus">
+                    <option value="true">True</option>
+                    <option value="False">False</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Apply Monthly Bonus</label>
+                <select name="monthlyBonus">
+                    <option value="true">True</option>
+                    <option value="False">False</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

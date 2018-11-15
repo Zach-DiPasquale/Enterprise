@@ -1,0 +1,55 @@
+﻿@page
+@model KennUwareHR.Pages.Leave.ApprovalModel
+
+@{
+    ViewData["Title"] = "Approval";
+}
+
+<h2>Leaves Awaiting Approval</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Leave[0].StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Leave[0].EndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Leave[0].Employee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Leave)
+        {
+            if (!item.Approved && (((User.IsInRole("Employee") || User.IsInRole("Admin")) && item.Employee.MyManagerId == Convert.ToInt32(Model.EmpId)) || User.IsInRole("HR")))
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Employee.FullName)
+                    </td>
+                    <td>
+                        <a role="button" class="btn btn-success" asp-page="./Approve" asp-route-id="@item.Id">Approve</a>
+                        <a role="button" class="btn btn-primary" asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                        <a role="button" class="btn btn-danger" asp-page="./Deny" asp-route-id="@item.Id">Deny</a>
+                    </td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

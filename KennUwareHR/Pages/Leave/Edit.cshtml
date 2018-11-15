@@ -1,0 +1,42 @@
+@page
+@model KennUwareHR.Pages_Leave.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Leave</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Leave.Id" />
+            <input type="hidden" asp-for="Leave.Approved" />
+            <input type="hidden" asp-for="Leave.EmployeeId" />
+            <div class="form-group">
+                <label asp-for="Leave.StartTime" class="control-label"></label>
+                <input asp-for="Leave.StartTime" class="form-control" />
+                <span asp-validation-for="Leave.StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Leave.EndTime" class="control-label"></label>
+                <input asp-for="Leave.EndTime" class="form-control" />
+                <span asp-validation-for="Leave.EndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Go to Leaves Index</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,457 @@
+{
+	"info": {
+		"_postman_id": "23ef7325-90c5-4f28-b7dd-cfa2aa9acea7",
+		"name": "HR",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Employee with Department and Region",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5c8d1c62-796f-47f5-8dc1-5e2dd50eaabf",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Ensure all results have right department and region\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.data[0].id).to.eql(4);",
+							"    ",
+							"    data = jsonData.data;",
+							"    ",
+							"    data.forEach(function(element) {",
+							"        pm.expect(element.departmentName).to.eql(\"Accounting\");",
+							"        pm.expect(element.regionName).to.eql(\"North East\");",
+							"    });",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://kennuware-1772705765.us-east-1.elb.amazonaws.com/api/employee?department=accounting&region=North East",
+					"protocol": "http",
+					"host": [
+						"kennuware-1772705765",
+						"us-east-1",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"employee"
+					],
+					"query": [
+						{
+							"key": "department",
+							"value": "accounting"
+						},
+						{
+							"key": "region",
+							"value": "North East"
+						}
+					]
+				},
+				"description": "Return all employees with department HR and region Rochester"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employee with ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4f8e4be3-a4e0-42b6-a165-46b991f74a6b",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Ensure Name is correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.firstName).to.eql(\"TEST EMPLOYEE\");",
+							"    pm.expect(jsonData.id).to.eql(4);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://kennuware-1772705765.us-east-1.elb.amazonaws.com/api/employee?id=4",
+					"protocol": "http",
+					"host": [
+						"kennuware-1772705765",
+						"us-east-1",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"employee"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						},
+						{
+							"key": "department",
+							"value": "R%26D",
+							"disabled": true
+						},
+						{
+							"key": "position",
+							"value": "Tech Lead",
+							"disabled": true
+						},
+						{
+							"key": "pageNum",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "5",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Returns one employee with ID of 1"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Salary with Incorrect Dates",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c66519b8-c46b-43a2-94eb-81632bc01bc9",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Ensure return message is Incorrect Dates\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"error\");",
+							"    pm.expect(jsonData.message).to.eql(\"Incorrect Dates\");",
+							"});",
+							"",
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "monthlyBonus",
+							"value": "true",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "quarterlyBonus",
+							"value": "true",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "payStart",
+							"value": "05/25/2016",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "payEnd",
+							"value": "05/23/2016",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://kennuware-1772705765.us-east-1.elb.amazonaws.com/api/Salary",
+					"protocol": "http",
+					"host": [
+						"kennuware-1772705765",
+						"us-east-1",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"Salary"
+					]
+				},
+				"description": "The request should return an error since the end date is before the beginning date."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Salary with Missing Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1b3de61c-ab72-4734-a4ab-ae18211b4dde",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Ensure return message is missing arguments\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"error\");",
+							"    pm.expect(jsonData.message).to.eql(\"Missing Arguments\");",
+							"});",
+							"",
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "monthlyBonus",
+							"value": "true",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "quarterlyBonus",
+							"value": "true",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "payEnd",
+							"value": "05/23/2016",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://kennuware-1772705765.us-east-1.elb.amazonaws.com/api/Salary",
+					"protocol": "http",
+					"host": [
+						"kennuware-1772705765",
+						"us-east-1",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"Salary"
+					]
+				},
+				"description": "The request should return an error since the end date is before the beginning date."
+			},
+			"response": []
+		},
+		{
+			"name": "POST Salaries Successfully",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "acf1501c-ed6a-4861-85f3-f30b74f698f9",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Ensure return object is correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"success\");",
+							"    pm.expect(jsonData.startDate);",
+							"    pm.expect(jsonData.endDate);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6f773149-9fe7-48b2-bc2b-76764abc7ed5",
+						"type": "text/javascript",
+						"exec": [
+							"var seedStart = new Date();",
+							"var seedEnd = new Date(seedStart).setDate(seedStart.getDate() - 1000);",
+							"var startRandDate = new Date(randomDate(seedStart, seedEnd));",
+							"pm.environment.set(\"startDate\", startRandDate.toLocaleDateString(\"en-US\"));",
+							"pm.environment.set(\"endDate\", new Date(startRandDate.setDate(startRandDate.getDate() + 2)).toLocaleDateString(\"en-US\"));",
+							"",
+							"function randomDate(start, end) {",
+							"    start = new Date(start);",
+							"    end = new Date(end);",
+							"    var newDate = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));",
+							"  return newDate;",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "monthlyBonus",
+							"value": "true",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "quarterlyBonus",
+							"value": "true",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "payStart",
+							"value": "{{startDate}}",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "payEnd",
+							"value": "{{endDate}}",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://kennuware-1772705765.us-east-1.elb.amazonaws.com/api/Salary",
+					"protocol": "http",
+					"host": [
+						"kennuware-1772705765",
+						"us-east-1",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"Salary"
+					]
+				},
+				"description": "Tests the standard path for calculating salaries"
+			},
+			"response": []
+		},
+		{
+			"name": "POST Salaries with Recalculated Dates",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "beea3948-7a96-4b62-8fd7-3c297d6d8b20",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Ensure Name is correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"error\");",
+							"    pm.expect(jsonData.message).to.eql(\"Payment already calculated for dates\");",
+							"});",
+							"",
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "monthlyBonus",
+							"value": "true",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "quarterlyBonus",
+							"value": "true",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "payStart",
+							"value": "05/25/2016",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "payEnd",
+							"value": "05/27/2016",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://kennuware-1772705765.us-east-1.elb.amazonaws.com/api/Salary",
+					"protocol": "http",
+					"host": [
+						"kennuware-1772705765",
+						"us-east-1",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"Salary"
+					]
+				},
+				"description": "Tests the standard path for calculating salaries"
+			},
+			"response": []
+		}
+	]
+}

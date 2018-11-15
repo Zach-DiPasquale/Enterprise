@@ -1,0 +1,55 @@
+@page
+@model KennUwareHR.Pages_Review.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Review</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Review.ReviewedEmployee" class="control-label">Who are you reviewing?</label>
+                <select asp-for="Review.ReviewedEmployeeId" class="form-control"
+                        asp-items="@Model.ReviewedEmployeeNameSL">
+                    <option value="">-- Select Employee --</option>
+                </select>
+                <span asp-validation-for="Review.ReviewedEmployee" class="text-danger" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Review.Comment" class="control-label"></label>
+                <textarea asp-for="Review.Comment" class="form-control" ></textarea>
+                <span asp-validation-for="Review.Comment" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <!-- <label asp-for="Review.ReviewerEmployee" class="control-label"></label> -->
+                <!-- <select asp-for="Review.ReviewerEmployeeId" class="form-control"
+                        asp-items="@Model.ReviewingEmployeeNameSL">
+                    <option value="">- Select Employee -</option>
+                </select>
+                <span asp-validation-for="Review.ReviewerEmployee" class="text-danger" /> -->
+                You: @Model.Employee.FirstName
+                @Model.Employee.LastName
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

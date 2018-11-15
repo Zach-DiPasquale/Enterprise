@@ -1,0 +1,61 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "KennUware HR";
+}
+
+<ul class="nav nav-tabs justify-content-lg-center" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="welcome-tab" data-toggle="tab" href="#welcome" role="tab" aria-controls="welcome" aria-selected="true">Welcome</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="features-tab" data-toggle="tab" href="#features" role="tab" aria-controls="features" aria-selected="false">Features</a>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane text-sm-center fade show active" id="welcome" role="tabpanel" aria-labelledby="welcome-tab">
+        <h3>Welcome to the KennUWare HR portal!</h3>
+        <p>The one-stop-shop for all employee and management needs.</p>
+        <img src="~/images/wearable-02.jpg" class="w-25 h-25"/>
+    </div>
+    <div class="tab-pane fade" id="features" role="tabpanel" aria-labelledby="features-tab">
+        <div>
+            <ul>
+                <li>
+                    Employee Management
+                    <ul>
+                        <li>Create Employees</li>
+                        <li>View employee profiles</li>
+                        <li>Edit employees</li>
+                        <li>Leave employee reviews</li>
+                        <li>API: Employee search</li>
+                    </ul>
+                </li>
+                <li>
+                    Salary Management
+                    <ul>
+                        <li>Salary creation</li>
+                        <li>View all salaries</li>
+                        <li>API: Kick off Salary Calculation</li>
+                    </ul>
+                </li>
+                <li>
+                    Leave Management
+                    <ul>
+                        <li>Employees apply for leaves</li>
+                        <li>HR/Managers approve/deny leave requests</li>
+                        <li>Calendar to display all leaves</li>
+                    </ul>
+                </li>
+                <li>
+                    API Gateway
+                    <ul>
+                        <li>Central Login Location</li>
+                        <li>Account Creation with Username and Passwords</li>
+                        <li>Authenticated Request Forwarding via JWTs</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

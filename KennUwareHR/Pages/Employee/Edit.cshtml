@@ -1,0 +1,125 @@
+@page
+@model KennUwareHR.Pages_Employee.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Employee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Employee.Id" />
+            <div class="form-group">
+                <label asp-for="Employee.FirstName" class="control-label"></label>
+                <input asp-for="Employee.FirstName" class="form-control" />
+                <span asp-validation-for="Employee.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.LastName" class="control-label"></label>
+                <input asp-for="Employee.LastName" class="form-control" />
+                <span asp-validation-for="Employee.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.Address" class="control-label"></label>
+                <input asp-for="Employee.Address" class="form-control" />
+                <span asp-validation-for="Employee.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.PhoneNumber" class="control-label"></label>
+                <input asp-for="Employee.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Employee.PhoneNumber" class="text-danger"></span>
+            </div>
+            @if((User.IsInRole("HR") || User.IsInRole("Admin")) || (Model.EmpId != Model.Employee.Id)) 
+            {
+            <div class="form-group">
+                <label asp-for="Employee.Commission" class="control-label">Commission (In whole integer percent form)</label>
+                <input asp-for="Employee.Commission" class="form-control" />
+                <span asp-validation-for="Employee.Commission" class="text-danger"></span>
+            </div>
+            }
+            @if((User.IsInRole("HR") || User.IsInRole("Admin")) || (Model.EmpId != Model.Employee.Id)) 
+            {
+            <div class="form-group">
+                <label asp-for="Employee.Salary" class="control-label"></label>
+                <input asp-for="Employee.Salary" class="form-control" />
+                <span asp-validation-for="Employee.Salary" class="text-danger"></span>
+            </div>
+            }
+            <div class="form-group">
+                <label asp-for="Employee.DateOfBirth" class="control-label"></label>
+                <div class='input-group date' id='datetimepicker1'>
+                    <input asp-for="Employee.DateOfBirth" type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                <span asp-validation-for="Employee.DateOfBirth" class="text-danger"></span>
+            </div>
+            @if((User.IsInRole("HR") || User.IsInRole("Admin")) || (Model.EmpId != Model.Employee.Id))
+            {
+                <div class="form-group">
+                    <label asp-for="Employee.Department" class="control-label"></label>
+                    <select asp-for="Employee.DepartmentId" class="form-control"
+                            asp-items="@Model.DepartmentNameSL">
+                        <option value="">-- Select Region --</option>
+                    </select>
+                    <span asp-validation-for="Employee.Department" class="text-danger" />
+                </div>
+            <div class="form-group">
+                <label asp-for="Employee.Position" class="control-label"></label>
+                <select asp-for="Employee.PositionId" class="form-control"
+                        asp-items="@Model.PositionNameSL">
+                    <option value="">-- Select Region --</option>
+                </select>
+                <span asp-validation-for="Employee.Position" class="text-danger" />
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Employee.Region" class="control-label"></label>
+                <select asp-for="Employee.RegionId" class="form-control"
+                        asp-items="@Model.RegionNameSL">
+                    <option value="">-- Select Region --</option>
+                </select>
+                <span asp-validation-for="Employee.Region" class="text-danger" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.Role" class="control-label"></label>
+                <select asp-for="Employee.RoleId" class="form-control"
+                        asp-items="@Model.RoleNameSL">
+                    <option value="">-- Select Region --</option>
+                </select>
+                <span asp-validation-for="Employee.Role" class="text-danger" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.MyManager" class="control-label"></label>
+                <select asp-for="Employee.MyManagerId" class="form-control"
+                        asp-items="@Model.ManagerNameSL">
+                    <option value="">-- Select Manager --</option>
+                </select>
+                <span asp-validation-for="Employee.Role" class="text-danger" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.UserId" class="control-label"></label>
+                <input asp-for="Employee.UserId" class="form-control" />
+                <span asp-validation-for="Employee.UserId" class="text-danger"></span>
+            </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a role="button" class="btn btn-secondary" asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

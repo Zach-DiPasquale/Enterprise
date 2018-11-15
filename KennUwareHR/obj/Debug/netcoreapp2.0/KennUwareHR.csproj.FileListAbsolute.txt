@@ -1,0 +1,11 @@
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR/bin/Debug/netcoreapp2.0/KennUwareHR.deps.json
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR/bin/Debug/netcoreapp2.0/KennUwareHR.runtimeconfig.json
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR/bin/Debug/netcoreapp2.0/KennUwareHR.runtimeconfig.dev.json
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR/bin/Debug/netcoreapp2.0/KennUwareHR.dll
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR/bin/Debug/netcoreapp2.0/KennUwareHR.pdb
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR/obj/Debug/netcoreapp2.0/KennUwareHR.csproj.CoreCompileInputs.cache
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR/obj/Debug/netcoreapp2.0/KennUwareHR.AssemblyInfoInputs.cache
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR/obj/Debug/netcoreapp2.0/KennUwareHR.AssemblyInfo.cs
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR/obj/Debug/netcoreapp2.0/KennUwareHR.dll
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR/obj/Debug/netcoreapp2.0/KennUwareHR.pdb
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR/obj/Debug/netcoreapp2.0/KennUwareHR.csprojResolveAssemblyReference.cache

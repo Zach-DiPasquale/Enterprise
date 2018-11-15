@@ -1,0 +1,42 @@
+@page
+@model KennUwareHR.Pages_Leave.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Leave</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Leave.Approved)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Leave.Approved)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Leave.StartTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Leave.StartTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Leave.EndTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Leave.EndTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Leave.Employee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Leave.Employee.FullName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Index">Go to Leaves Index</a>
+</div>

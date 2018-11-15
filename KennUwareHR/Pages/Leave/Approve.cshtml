@@ -1,0 +1,40 @@
+﻿@page
+@model KennUwareHR.Pages.Leave.ApproveModel
+
+@{
+    ViewData["Title"] = "Approve";
+}
+
+<h2>Approve</h2>
+
+<h4>Leave</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Leave.Id" />
+            <input type="hidden" asp-for="Leave.EmployeeId" />
+            <input type="hidden" asp-for="Leave.StartTime" />
+            <input type="hidden" asp-for="Leave.EndTime" />
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Leave.Approved" /> @Html.DisplayNameFor(model => model.Leave.Approved)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./AwaitingApproval">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

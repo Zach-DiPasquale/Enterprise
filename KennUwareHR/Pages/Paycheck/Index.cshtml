@@ -1,0 +1,70 @@
+@page
+@model KennUwareHR.Pages_Paycheck.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Paycheck[0].IssueDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Paycheck[0].PayPeriodStart)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Paycheck[0].PayPeriodEnd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Paycheck[0].BasePay)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Paycheck[0].Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Paycheck[0].BonusPay)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Paycheck[0].Commission)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Paycheck) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IssueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PayPeriodStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PayPeriodEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BasePay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BonusPay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Commission)
+            </td>
+            <td>
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

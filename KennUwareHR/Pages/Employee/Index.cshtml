@@ -1,0 +1,66 @@
+@page
+@model KennUwareHR.Pages_Employee.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Employees</h2>
+
+@if(User.IsInRole("HR") || User.IsInRole("Admin") ) 
+{
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+}
+
+<p>
+    <a role="button" class="btn btn-secondary" asp-page="./Details" asp-route-id="@Model.EmpId">
+        View Your Profile
+    </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Employee[0].FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Employee[0].LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Employee[0].Region)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Employee[0].Department)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Employee[0].MyManager.FullName)
+                </th>
+                <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Employee) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Region.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.Name)
+            </td>
+            <td>
+                <a role="button" class="btn btn-primary" asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+                <a role="button" class="btn btn-secondary" asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                <a role="button" class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,16 @@
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR.Test/obj/Debug/netcoreapp2.0/KennUwareHR.Test.csprojResolveAssemblyReference.cache
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR.Test/obj/Debug/netcoreapp2.0/KennUwareHR.Test.csproj.CoreCompileInputs.cache
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR.Test/obj/Debug/netcoreapp2.0/KennUwareHR.Test.AssemblyInfoInputs.cache
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR.Test/obj/Debug/netcoreapp2.0/KennUwareHR.Test.AssemblyInfo.cs
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR.Test/bin/Debug/netcoreapp2.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR.Test/bin/Debug/netcoreapp2.0/xunit.runner.reporters.netcoreapp10.dll
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR.Test/bin/Debug/netcoreapp2.0/xunit.runner.utility.netcoreapp10.dll
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR.Test/bin/Debug/netcoreapp2.0/KennUwareHR.Test.deps.json
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR.Test/bin/Debug/netcoreapp2.0/KennUwareHR.Test.runtimeconfig.json
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR.Test/bin/Debug/netcoreapp2.0/KennUwareHR.Test.runtimeconfig.dev.json
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR.Test/bin/Debug/netcoreapp2.0/KennUwareHR.Test.dll
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR.Test/bin/Debug/netcoreapp2.0/KennUwareHR.Test.pdb
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR.Test/bin/Debug/netcoreapp2.0/KennUwareHR.dll
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR.Test/bin/Debug/netcoreapp2.0/KennUwareHR.pdb
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR.Test/obj/Debug/netcoreapp2.0/KennUwareHR.Test.dll
+/Users/zacharydipasquale/Documents/RIT/Spring 2018/SWEN-343/erp-2175-erp-humanresources/KennUwareHR.Test/obj/Debug/netcoreapp2.0/KennUwareHR.Test.pdb

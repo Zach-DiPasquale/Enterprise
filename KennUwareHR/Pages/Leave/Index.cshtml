@@ -1,0 +1,98 @@
+@page
+@model KennUwareHR.Pages_Leave.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3 class="text-center">Your Leaves</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Leave[0].Approved)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Leave[0].StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Leave[0].EndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Leave[0].Employee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.myLeaves)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Approved)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employee.FullName)
+                </td>
+                <td>
+                    <a role="button" class="btn btn-success" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a role="button" class="btn btn-primary" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a role="button" class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+            
+        }
+    </tbody>
+</table>
+
+<h3 class="text-center">Your Employee's Leaves</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Leave[0].Approved)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Leave[0].StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Leave[0].EndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Leave[0].Employee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Leave) {
+    @if (((User.IsInRole("Employee") || User.IsInRole("Admin")) && item.Employee.MyManagerId == Convert.ToInt32(Model.EmpId)) || User.IsInRole("HR")) { 
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Approved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.FullName)
+            </td>
+            <td>
+                <a role="button" class="btn btn-primary" asp-page="./Details" asp-route-id="@item.Id">Details</a>
+            </td>
+        </tr>
+    }
+}
+    </tbody>
+</table>

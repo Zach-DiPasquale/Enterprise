@@ -1,0 +1,182 @@
+@page
+@model KennUwareHR.Pages_Employee.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.DateOfBirth)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.DateOfBirth)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Address)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.PhoneNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.PhoneNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Department)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Department.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Position)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Position.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Region)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Region.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Role)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Role.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Manager)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Manager.FullName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <h4>Paychecks</h4>
+    @if (Model.Paychecks.Count() == 0) {
+        <p>You have no paychecks yet. Wait for your next paying period</p>
+    } else {
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Pay Period
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Paychecks[0].BasePay)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Paychecks[0].BonusPay)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Paychecks[0].Commission)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Paychecks) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PayPeriodStart) -
+                        @Html.DisplayFor(modelItem => item.PayPeriodEnd)
+                    </td>
+                    <td>
+                        $@Html.DisplayFor(modelItem => item.BasePay)
+                    </td>
+                    <td>
+                        $@Html.DisplayFor(modelItem => item.BonusPay)
+                    </td>
+                    <td>
+                        $@Html.DisplayFor(modelItem => item.Commission)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    }
+</div>
+<div>
+    <h4>Reviews</h4>
+    @if (Model.Reviews.Count() == 0){
+        <p>You have no reviews!</p>
+    } else {
+        <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Reviews[0].ReviewerEmployee)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Reviews[0].Comment)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Reviews) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReviewerEmployee.FirstName) 
+                        @Html.DisplayFor(modelItem => item.ReviewerEmployee.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Comment)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    }
+</div>
+<div>
+    <h4>CS Reviews</h4>
+    @if (Model.CSReviews.Count() == 0){
+        <p>You have no reviews!</p>
+    } else {
+        <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CSReviews[0].Content)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.CSReviews) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Content)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    }
+</div>
+<div>
+    <a role="button" class="btn btn-light" asp-page="./Edit" asp-route-id="@Model.Employee.Id">Edit</a> |
+    <a role="button" class="btn btn-secondary" asp-page="./Index">Back to List</a>
+</div>

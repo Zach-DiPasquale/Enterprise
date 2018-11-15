@@ -1,0 +1,37 @@
+@page
+@model KennUwareHR.Pages_Region.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Region</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Region.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Region.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Region.Country)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Region.Country)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Region.BonusRevenueThreshold)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Region.BonusRevenueThreshold)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Region.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

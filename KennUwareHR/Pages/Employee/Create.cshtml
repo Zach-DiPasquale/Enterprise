@@ -1,0 +1,106 @@
+@page
+@model KennUwareHR.Pages_Employee.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Employee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Employee.FirstName" class="control-label"></label>
+                <input asp-for="Employee.FirstName" class="form-control" />
+                <span asp-validation-for="Employee.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.LastName" class="control-label"></label>
+                <input asp-for="Employee.LastName" class="form-control" />
+                <span asp-validation-for="Employee.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.DateOfBirth" class="control-label"></label>
+                <input asp-for="Employee.DateOfBirth" class="form-control" />
+                <span asp-validation-for="Employee.DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.Address" class="control-label"></label>
+                <input asp-for="Employee.Address" class="form-control" />
+                <span asp-validation-for="Employee.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.Commission" class="control-label">(In whole integer percent form)</label>
+                <input asp-for="Employee.Commission" class="form-control" />
+                <span asp-validation-for="Employee.Commission" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.Salary" class="control-label"></label>
+                <input asp-for="Employee.Salary" class="form-control" />
+                <span asp-validation-for="Employee.Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.PhoneNumber" class="control-label"></label>
+                <input asp-for="Employee.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Employee.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.Department" class="control-label"></label>
+                <select asp-for="Employee.DepartmentId" class="form-control"
+                        asp-items="@Model.DepartmentNameSL">
+                    <option value="">-- Select Region --</option>
+                </select>
+                <span asp-validation-for="Employee.Department" class="text-danger" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.Position" class="control-label"></label>
+                <select asp-for="Employee.PositionId" class="form-control"
+                        asp-items="@Model.PositionNameSL">
+                    <option value="">-- Select Region --</option>
+                </select>
+                <span asp-validation-for="Employee.Position" class="text-danger" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.Region" class="control-label"></label>
+                <select asp-for="Employee.RegionId" class="form-control"
+                        asp-items="@Model.RegionNameSL">
+                    <option value="">-- Select Region --</option>
+                </select>
+                <span asp-validation-for="Employee.Region" class="text-danger" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.Role" class="control-label"></label>
+                <select asp-for="Employee.RoleId" class="form-control"
+                        asp-items="@Model.RoleNameSL">
+                    <option value="">-- Select Region --</option>
+                </select>
+                <span asp-validation-for="Employee.Role" class="text-danger" />
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
